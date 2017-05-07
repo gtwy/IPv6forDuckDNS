@@ -15,4 +15,5 @@ While your public IPv4 address is shared across all devices in your network usin
    1. "K0" is an official error code from DuckDNS - check your subdomain and token
    1. If you get any other output, something is broken. Do you have all necessary packages installed?
 1. Create cron job
-   1. DuckDNS recommend a 5 minute interval
+   1. DuckDNS recommends a 5 minute interval
+   1. You can pipe the output to a log file or /dev/null.
