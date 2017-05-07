@@ -19,3 +19,6 @@ ipv4service="https://ipinfo.io/ip"
 read ipv6addr < <(ip addr show dev $ipv6device | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d' | grep -v '^fe80')
 read ipv4addr < <(curl --ipv4 -s $ipv4service)
 curl -s "https://www.duckdns.org/update?domains=$subdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr"
+
+
+# EOF
