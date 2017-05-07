@@ -1,5 +1,5 @@
 #!/bin/bash
-# DuckDNS IPv4 & IPv6 Update Script v0.1
+# DuckDNS IPv4 & IPv6 Update Script v0.2
 # By James Watt 2017-05-07
 
 # This script is intended for hosts with an IPv4 NAT address and a public IPv6 address
