@@ -11,6 +11,7 @@ While your public IPv4 address is shared across all devices in your network usin
 * grep
 * curl
 * working internet connection w/ dns resolution
+* a working ipv6 address
 
 # Installation
 1. Run ./autoconfig-duckdns6.sh
