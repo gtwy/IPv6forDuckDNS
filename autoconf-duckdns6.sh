@@ -22,7 +22,6 @@ else
   
   # Questions
   printf "Autoconfigure script by James Watt for DuckDNS.\nThis script should be run on the computer hosting the services you would like publicly accessible.\n\nCheck https://www.duckdns.org/domains for domain and token\n\n"
-  
   read -r -e -p "DuckDNS Subdomain (Do not include \".duckdns.org\"): " duckdomain
   read -r -e -p "DuckDNS Token (E.g. a7c4d0ad-114e-40ef-ba1d-d217904a50f2): " ducktoken
   
@@ -43,7 +42,7 @@ else
 fi
 
 # Connect to DuckDNS
-printf "\nNow connecting to DuckDNS..."
+printf "\nNow connecting to DuckDNS... "
 curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr"
 
 # Write changes and create cronjob
