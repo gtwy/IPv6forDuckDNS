@@ -4,7 +4,7 @@ Script to submit both IPv6 and IPv4 addresses to DuckDNS.
 By default, DuckDNS cannot automatically resolve IPv6 addresses (See [DuckDNS FAQ](https://www.duckdns.org/faqs.jsp) for more details.) Using my script will allow you to easily and automatically submit your IPv4 and IPv6 addresses to DuckDNS.
 
 # Understanding IPv6
-While your public IPv4 address is shared across all devices in your network using NAT, each device will have its own public IPv6 address. Therefor, you must run this script on the device that is actually providing the service.
+While your public IPv4 address is shared across all devices in your network using NAT, each device will have its own public IPv6 address. Therefor, you must run this script on the device that is actually providing the service. (NAT will be automatically disregarded if a public IPv4 address is detected on the machine.)
 
 # Prerequisites
 * curl, sed, grep, head
