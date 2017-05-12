@@ -48,7 +48,7 @@ curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=
 
 # Write changes and create cronjob
 
-if [[ -e "$HOME"/.duck6.conf ]] ; then
+if [[ -e "$duck6conf" ]] ; then
   exit
 else
   printf "\n\nCheck https://www.duckdns.org/domains to ensure it updated with the correct info.\n\n"
@@ -57,12 +57,12 @@ else
   yesNo=${RyesNo:-$yesNo}
   if [[ "$yesNo" == "Y" || "$yesNo" == "y" || "$yesNo" == "yes" || "$yesNo" == "Yes" ]] ; then
     printf "\n\nWriting changes to ~/duck6.conf."
-    echo "#IPv6 for DuckDNS Config Script. You can make changes to this file." > "$HOME"/duck6.conf
+    echo "#IPv6 for DuckDNS Config Script. You can make changes to this file." > "$duck6conf"
     {
       echo duckdomain=\""$duckdomain"\"
       echo ducktoken=\""$ducktoken"\"
       echo ipv4service=\""$ipv4service"\"
-    } >> "$HOME"/duck6.conf
+    } >> "$duck6conf"
     printf "\n\nCopying this script to ~/duckdns6.sh and creating a cronjob."
     cp "$baseDir"/autoconf-duckdns6.sh "$HOME"/duckdns6.sh
   else
