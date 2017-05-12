@@ -7,11 +7,9 @@ By default, DuckDNS cannot automatically resolve IPv6 addresses (See [DuckDNS FA
 While your public IPv4 address is shared across all devices in your network using NAT, each device will have its own public IPv6 address. Therefor, you must run this script on the device that is actually providing the service.
 
 # Prerequisites
-* sed
-* grep
-* curl
+* curl, sed, grep, head
+* working ipv6 address
 * working internet connection w/ dns resolution
-* a working ipv6 address
 
 # Installation
 1. Run ./autoconfig-duckdns6.sh
