@@ -14,7 +14,7 @@ read -r _ _ _ _ iface _ ipv4local <<<"$(ip r g 8.8.8.8 | head -1)"
 ipv6addr=$(ip addr show dev "$iface" | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d' | grep -v '^fe80' | head -1)
 
 # Does .duck6.conf exist?
-if [[ -e "$duck6conf" ]] ; then
+if [[ -f "$duck6conf" ]] ; then
   source "$duck6conf"
 else
   # Default IPv4 service
@@ -39,7 +39,7 @@ fi
 if [[ -z $ipv4service ]] ; then
   ipv4addr=$ipv4local
 else
-  ipv4addr=$"(curl --ipv4 -s \""$ipv4service"\")"
+  ipv4addr=$(curl --ipv4 -s "${ipv4service}")
 fi
 
 # Connect to DuckDNS
@@ -48,7 +48,7 @@ curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=
 
 # Write changes and create cronjob
 
-if [[ -e "$duck6conf" ]] ; then
+if [[ -f "$duck6conf" ]] ; then
   exit
 else
   printf "\n\nCheck https://www.duckdns.org/domains to ensure it updated with the correct info.\n\n"
@@ -56,15 +56,18 @@ else
   read -r -e -p "Did it update correctly? [Y/n]" RyesNo
   yesNo=${RyesNo:-$yesNo}
   if [[ "$yesNo" == "Y" || "$yesNo" == "y" || "$yesNo" == "yes" || "$yesNo" == "Yes" ]] ; then
-    printf "\n\nWriting changes to ~/duck6.conf."
+    printf "\n 1. Writing changes to ~/duck6.conf."
     echo "#IPv6 for DuckDNS Config Script. You can make changes to this file." > "$duck6conf"
     {
       echo duckdomain=\""$duckdomain"\"
       echo ducktoken=\""$ducktoken"\"
       echo ipv4service=\""$ipv4service"\"
     } >> "$duck6conf"
-    printf "\n\nCopying this script to ~/duckdns6.sh and creating a cronjob."
+    printf "\n 2. Copying this script to ~/duckdns6.sh"
     cp "$baseDir"/autoconf-duckdns6.sh "$HOME"/duckdns6.sh
+    printf "\n 3. Setting up cronjob to run every 5 minutes"
+    (crontab -l 2>/dev/null; echo "*/5 * * * * ~/duckdns6.sh >/dev/null 2>&1") | crontab -
+    printf "\n\nConfiguration complete.\n"
   else
     printf "\n\nThis script will now exit. Please double check your settings and run ./autoconfig-duckdns6.sh again.\n\n"
     exit
