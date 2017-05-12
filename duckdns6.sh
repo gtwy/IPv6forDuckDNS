@@ -3,6 +3,10 @@
 # By James Watt 2017-05-07
 # This script is intended for hosts with an IPv4 NAT address and a public IPv6 address
 
+# NOTICE:
+# This script has been superseeded by the autoconfig script.
+# Please use the autoconfig instead.
+
 
 # Configure these using your domain and token from https://www.duckdns.org/domains
 subdomain="site"    # Do not include ".duckdns.org"
