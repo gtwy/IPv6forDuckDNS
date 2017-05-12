@@ -20,4 +20,4 @@ While your public IPv4 address is shared across all devices in your network usin
    *  "K0" is an official error code from DuckDNS - check your subdomain and token
    * If you get any other output, something is broken. *See prerequisites.*
 1. The script will automatically save your configuration in ~/ and create a cron job.
-1. Check your crontab to make sure the service has been set.
+1. Check your crontab to make sure the job has been created.
