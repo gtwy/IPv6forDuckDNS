@@ -24,3 +24,6 @@ While your public IPv4 address is shared across all devices in your network usin
 1. Create cron job
    1. DuckDNS recommends a 5 minute interval
    1. You can pipe the output to a log file or /dev/null.
+
+# Autoconfig
+I'm currently working on an autoconfig script to replace the manual config script. It's not yet functional.
