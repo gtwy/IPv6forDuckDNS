@@ -12,12 +12,12 @@ While your public IPv4 address is shared across all devices in your network usin
 * working internet connection w/ dns resolution
 
 # Installation
-1. Run ./autoconfig-duckdns6.sh
-   1. Type your site subdomain (do not enter ".duckdns.org")
-   1. Paste your DuckDNS token (watch for trailing whitespace)
-   1. If behind NAT, you'll be asked to enter an IPv4 service. If you are unsure, just press Enter.
+1. Run **./autoconfig-duckdns6.sh**
+   * Type your site subdomain. (Do not enter ".duckdns.org.")
+   * Paste your DuckDNS token. (Watch for trailing whitespace.)
+   * If behind NAT, you'll be asked to enter an IPv4 service. If you are unsure, just press Enter.
 1. The curl request should return OK when Connecting to Duck DNS.
-   1.  "K0" is an official error code from DuckDNS - check your subdomain and token
-   1. If you get any other output, something is broken. *See prerequisites.*
+   *  "K0" is an official error code from DuckDNS - check your subdomain and token
+   * If you get any other output, something is broken. *See prerequisites.*
 1. The script will automatically save your configuration in ~/ and create a cron job.
 1. Check your crontab to make sure the service has been set.
