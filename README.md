@@ -13,9 +13,9 @@ While your public IPv4 address is shared across all devices in your network usin
 
 # Installation
 1. Run **./autoconfig-duckdns6.sh**
-   * Type your site subdomain. (Do not enter ".duckdns.org.")
-   * Paste your DuckDNS token. (Watch for trailing whitespace.)
-   * If behind NAT, you'll be asked to enter an IPv4 service. If you are unsure, just press Enter.
+   * Type your site subdomain. *Do not enter ".duckdns.org."*
+   * Paste your DuckDNS token. *Watch for trailing whitespace.*
+   * If behind NAT, you'll be asked to enter an IPv4 service. *If you are unsure, just press Enter.*
 1. The curl request should return OK when Connecting to Duck DNS.
    *  "K0" is an official error code from DuckDNS - check your subdomain and token
    * If you get any other output, something is broken. *See prerequisites.*
