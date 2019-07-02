@@ -18,7 +18,7 @@ if [[ -f "$duck6conf" ]] ; then
   source "$duck6conf"
 else
   # Default IPv4 service
-  ipv4service="https://gtwy.net/ip"
+  ipv4service="https://gtwy.net/ip/"
   
   # Questions
   printf "Autoconfigure script by James Watt for DuckDNS.\nThis script should be run on the computer hosting the services you would like publicly accessible.\n\nCheck https://www.duckdns.org/domains for domain and token\n\n"
