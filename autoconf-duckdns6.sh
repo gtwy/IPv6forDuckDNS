@@ -11,7 +11,7 @@ duck6conf="$HOME"/.duck6.conf
 
 # Probe IPv4 and IPv6 addresses
 read -r _ _ _ _ iface _ ipv4local <<<"$(ip r g 8.8.8.8 | head -1)"
-ipv6addr=$(ip addr show dev "$iface" | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d' | grep -v '^fe80' | head -1)
+ipv6addr=$(ip addr show dev "$iface" | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d' | grep -v '^fd00' | grep -v '^fe80' | head -1)
 
 # Does .duck6.conf exist?
 if [[ -f "$duck6conf" ]] ; then
