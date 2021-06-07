@@ -1,6 +1,6 @@
 #!/bin/bash
 # shellcheck source=/dev/null
-# Autoconfig for DuckDNS IPv4 & IPv6 Update Script v0.1
+# Autoconfig for DuckDNS IPv4 & IPv6 Update Script v0.3
 # By James Watt 2017-05-12
 # This script is intended for hosts with an IPv4 NAT address and a public IPv6 address
 set -e
@@ -17,14 +17,15 @@ ipv6addr=$(ip addr show dev "$iface" | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d'
 if [[ -f "$duck6conf" ]] ; then
   source "$duck6conf"
 else
-  # Default IPv4 service
+  # Default IPv4 service: https://gtwy.net/ip/
+  # Alternate IPv4 service: https://api.ipify.org/?format=txt
   ipv4service="https://gtwy.net/ip/"
-  
+
   # Questions
   printf "Autoconfigure script by James Watt for DuckDNS.\nThis script should be run on the computer hosting the services you would like publicly accessible.\n\nCheck https://www.duckdns.org/domains for domain and token\n\n"
   read -r -e -p "DuckDNS Subdomain (Do not include \".duckdns.org\"): " duckdomain
   read -r -e -p "DuckDNS Token (E.g. a7c4d0ad-114e-40ef-ba1d-d217904a50f2): " ducktoken
-  
+
   if [[ "$ipv4local" =~ (^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.) ]] ; then
     printf "\nWe are detecting a local IPv4 address: %s\nYou must provide an ip4service to lookup your public address.\nPress enter for default lookup service.\n" "$ipv4local"
     read -r -e -p "IPv4 Service [$ipv4service]: " Ripv4service
