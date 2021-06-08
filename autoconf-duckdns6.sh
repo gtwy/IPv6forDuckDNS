@@ -43,7 +43,8 @@ else
 fi
 
 # Connect to DuckDNS
-printf "\nNow connecting to DuckDNS... "
+printf "\nNow connecting to DuckDNS and publishing your IPv6 $ipv6addr"
+printf "\nfor domain $duckdomain.duckdns.org with token $ducktoken.\n\n"
 curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr"
 
 # Write changes and create cronjob
