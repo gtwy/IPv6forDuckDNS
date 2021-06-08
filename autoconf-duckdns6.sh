@@ -1,8 +1,9 @@
 #!/bin/bash
 # shellcheck source=/dev/null
 # Autoconfig for DuckDNS IPv4 & IPv6 Update Script v1.0.3
-# By James Watt 2017-05-12 Updated 2021-06-07
-# This script is intended for hosts with an IPv4 NAT address and a public IPv6 address
+# By James Watt 2017-05-12 Updated 2021-06-08
+# This script is intended for hosts with a public IPv6 address
+
 set -e
 
 # Paths
