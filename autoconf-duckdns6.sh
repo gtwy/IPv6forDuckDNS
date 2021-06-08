@@ -42,9 +42,12 @@ else
   ipv4addr=$(curl --ipv4 -s "${ipv4service}")
 fi
 
+# Display IPv4
+printf "\nYour IPv4 has been detected as $ipv4addr\n"
+
 # Connect to DuckDNS
 printf "\nNow connecting to DuckDNS and publishing your IPv6 $ipv6addr"
-printf "\nfor domain $duckdomain.duckdns.org with token $ducktoken.\n\n"
+printf "\nFor domain $duckdomain.duckdns.org with token $ducktoken.\n\n"
 curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr"
 
 # Write changes and create cronjob
