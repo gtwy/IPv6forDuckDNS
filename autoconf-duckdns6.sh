@@ -47,9 +47,10 @@ fi
 printf "\nYour IPv4 has been detected as $ipv4addr\n"
 
 # Connect to DuckDNS
-printf "\nNow connecting to DuckDNS and publishing your IPv6 $ipv6addr"
+printf "\nNow connecting to DuckDNS and publishing your IPv6 $ipv6addr and IPv4 $ipv4addr"
 printf "\nFor domain $duckdomain.duckdns.org with token $ducktoken.\n\n"
-curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr"
+coutput=$(curl -s "https://www.duckdns.org/update?domains=$duckdomain&token=$ducktoken&ip=$ipv4addr&ipv6=$ipv6addr" 2>&1)
+echo "Finished with code: [$?] and output [$coutput]"
 
 # Write changes and create cronjob
 
